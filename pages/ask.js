@@ -15,46 +15,48 @@ export default function AskCarly() {
 
   const sendMessage = (text) => {
     if (!text.trim()) return;
-    setMessages([...messages, { from: 'user', text }, { from: 'carly', text: "Thanks for your question! Let me look that up. 🔍" }]);
+    setMessages([
+      ...messages,
+      { from: 'user', text },
+      { from: 'carly', text: "Thanks for your question! Let me look that up. 🔍" }
+    ]);
     setInput('');
   };
 
   return (
     <Layout>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', border: '1px solid #ccc', borderRadius: '8px', padding: '8px' }}>
+      <div className="max-w-xl mx-auto p-4 flex flex-col gap-4">
+        <div className="flex items-center border border-gray-300 rounded-full px-4 py-2 bg-white shadow-sm">
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask Carly..."
-            style={{ flex: 1, border: 'none', outline: 'none', fontSize: '16px' }}
+            className="flex-1 outline-none text-base bg-transparent"
           />
-          <button onClick={() => sendMessage(input)} style={{ background: 'none', border: 'none', fontSize: '20px' }}>📷</button>
-          <button onClick={() => sendMessage("voice")} style={{ background: 'none', border: 'none', fontSize: '20px' }}>🎤</button>
+          <button onClick={() => sendMessage(input)} className="text-xl px-2">📷</button>
+          <button onClick={() => sendMessage("voice")} className="text-xl">🎤</button>
         </div>
 
-        <div>
+        <div className="flex flex-wrap gap-2">
           {suggestedQuestions.map((q, i) => (
-            <button key={i} onClick={() => sendMessage(q)} style={{
-              margin: '5px',
-              padding: '8px 12px',
-              borderRadius: '20px',
-              border: '1px solid #ddd',
-              background: '#fff',
-              cursor: 'pointer'
-            }}>{q}</button>
+            <button
+              key={i}
+              onClick={() => sendMessage(q)}
+              className="px-4 py-2 rounded-full border border-gray-300 bg-white shadow-sm hover:bg-gray-100 text-sm"
+            >
+              {q}
+            </button>
           ))}
         </div>
 
-        <div>
+        <div className="flex flex-col gap-2 mt-4">
           {messages.map((msg, i) => (
-            <div key={i} style={{
-              background: msg.from === 'carly' ? '#eee' : '#daf5ff',
-              alignSelf: msg.from === 'carly' ? 'flex-start' : 'flex-end',
-              padding: '10px',
-              borderRadius: '10px',
-              marginBottom: '5px'
-            }}>
+            <div
+              key={i}
+              className={`px-4 py-2 rounded-lg max-w-[75%] ${
+                msg.from === 'carly' ? 'bg-gray-100 self-start' : 'bg-blue-100 self-end'
+              }`}
+            >
               {msg.text}
             </div>
           ))}
