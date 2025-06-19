@@ -6,6 +6,7 @@ export default function NavBar() {
       <Link href="/">Home</Link>
       <Link href="/ask">Ask Carly</Link>
       <Link href="/mygarage">My Garage</Link>
+      <Link href="/myinfo">My Info</Link>
       <Link href="/account">Account</Link>
     </nav>
   );
