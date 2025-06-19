@@ -1,7 +1,10 @@
+import Layout from '../components/Layout'
+
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <h1 className="text-2xl font-bold">Welcome to Caramba Testing</h1>
-    </div>
-  );
+    <Layout>
+      <h1>Welcome to Caramba</h1>
+      <p>This is the home page.</p>
+    </Layout>
+  )
 }
