@@ -1,8 +1,11 @@
 import Link from 'next/link'
+import NavBar from './NavBar'
 
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <>
+      <NavBar />
+<div className="min-h-screen flex flex-col">
       <nav className="bg-white shadow-md">
         <div className="max-w-3xl mx-auto px-4 py-3 flex justify-between items-center">
           <h1 className="text-xl font-bold text-blue-600">Caramba</h1>
@@ -12,10 +15,13 @@ export default function Layout({ children }) {
             <Link href="/mygarage" className="text-gray-700 hover:text-blue-600">My Garage</Link>
             <Link href="/myinfo" className="text-gray-700 hover:text-blue-600">My Info</Link>
             <Link href="/account" className="text-gray-700 hover:text-blue-600">Account</Link>
-          </div>
-        </div>
+          </>
+  )
+        </>
+  )
       </nav>
       <main className="max-w-3xl mx-auto p-4 flex-grow">{children}</main>
-    </div>
+    </>
+  )
   )
 }
