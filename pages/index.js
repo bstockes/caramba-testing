@@ -1,10 +1,8 @@
-import Layout from '../components/Layout'
-
 export default function Home() {
   return (
-    <Layout>
-      <h1>Welcome to Caramba</h1>
-      <p>This is the home page.</p>
-    </Layout>
+    <div className="py-10">
+      <h1 className="text-3xl font-bold mb-4">Welcome to Caramba</h1>
+      <p className="text-gray-700">Your vehicle's best friend.</p>
+    </div>
   )
 }
